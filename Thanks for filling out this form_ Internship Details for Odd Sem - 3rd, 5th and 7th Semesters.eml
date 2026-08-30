@@ -1,0 +1,552 @@
+Delivered-To: ansh.25scs1003005085@iilm.edu
+Received: by 2002:a17:907:1dd6:b0:c21:845b:6c75 with SMTP id og22csp1853439ejc;
+        Sun, 30 Aug 2026 08:03:29 -0700 (PDT)
+X-Received: by 2002:a05:6820:83d8:10b0:6b0:4c0b:4832 with SMTP id 006d021491bc7-6b1c65b3b96mr13704441eaf.2.1788102209196;
+        Sun, 30 Aug 2026 08:03:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788102209; cv=none;
+        d=google.com; s=arc-20260327;
+        b=J6ISBr9db6X1z6q6Jj8nyEMOMsWrwIGS5XEGyI9H3EPExq9u+zRGiUjl+vEETnXKFY
+         pPps1ePiDQzF+88MWBk4dEEZ/0Ke9cSxiZwIL6Zidt8PR/wZoZZ10Oj7Ph+Hc69lo7iF
+         YzEewXtPwp6E2CCbTUuLNCZ6PFflkjb8bqcsXxka6Bg5iP6QjB1YHdr4Z9Ee0Tg4zQiE
+         2cbOJZj6j5SUSV2aexzo9tLBKmTtSeT5KvnCcHcRMmvpPqyIxKqj1Dh2YGgu0BU9E1QV
+         4GULNEfF3ksFErOleGaADPEYcOcgJCha+yNd+QQj/4HeRbDDhczfa+AtoqiKkKFLJQ6z
+         9oOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:from:subject:date:message-id:feedback-id:mime-version
+         :dkim-signature;
+        bh=7CObCHwtAFfopjVn8suN0py2gWeFVpE99os1hjBtklg=;
+        fh=25K1QM5yvysCmn3V2h+T0ns7KuEUR2FypmgYaUAlWxQ=;
+        b=DRM2mMTKVHHSmMxO9Cp1nQKYnETMq0gA6jGXFVlpmfA9qkLo4u2N9JJBH0v+CiKOJU
+         Jwof2KMvHTkUTIEtuKHOMdiLv2Piibl7tg/mFmzL0yJ63oGz1aM2wjqAZQsL4irO+zzY
+         mw1c8z9DoI0baPrkLolqWUWh3Ltd4B8qL29ddD0leBE2qujYJ3s8Nuf+6gYrZoAnxya8
+         UAJnRsYAm69PTxM4MWBzVoEscE8XoK7vVzaW3/ih2EE2pol3zqMH2PZE+PAZjdR5TROg
+         i9sIqoVNG+NyAR4rR1gS7CdkZUXC3bueL2IRELZ39XHoDs22WLUt6c1wRqq+WzBPRRib
+         5uRg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20251104 header.b=oh7L5f39;
+       spf=pass (google.com: domain of 3qeauahykahkclojp-obzbfmqp-klobmivdlldib.zlj@trix.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3QEaUahYKAHkclojp-obZbfmqp-klobmivdlldib.Zlj@trix.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=neutral header.i=@iilm.edu
+Return-Path: <3QEaUahYKAHkclojp-obZbfmqp-klobmivdlldib.Zlj@trix.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 46e09a7af769-7f4f99333f9sor4277836a34.1.2026.08.30.08.03.28
+        for <ansh.25scs1003005085@iilm.edu>
+        (Google Transport Security);
+        Sun, 30 Aug 2026 08:03:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3qeauahykahkclojp-obzbfmqp-klobmivdlldib.zlj@trix.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20251104 header.b=oh7L5f39;
+       spf=pass (google.com: domain of 3qeauahykahkclojp-obzbfmqp-klobmivdlldib.zlj@trix.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3QEaUahYKAHkclojp-obZbfmqp-klobmivdlldib.Zlj@trix.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=neutral header.i=@iilm.edu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788102208; x=1788707008; darn=iilm.edu;
+        h=content-type:to:from:subject:date:message-id:feedback-id
+         :mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7CObCHwtAFfopjVn8suN0py2gWeFVpE99os1hjBtklg=;
+        b=oh7L5f39r1JLdn7M6PMn5PZK4VLCiH04HWItcNjbAO5tZc/uOTkmdC5V5Ps0S5ypJF
+         50/N0FARzZZr8mThJxM31pV6QOjnt8mxv3JvnIHAOuH1An4GhFetZxRhCpRl9YJIB2Wv
+         lDc8PL/LxsBM6ivHgC4jjQ9+qX+PMmSUNgSathOmJ410fQSaUocr3FXO2D5nulwMPSbv
+         /0opft9GE+N+BAYo+iyVrf1qIrwpdE7DM4GQErwR/iiPHV6kYyT5wuF6bOO85BvcxozG
+         9Px8Izb9Ddh1yo6zq6hN0KNJ55CCsP41EgcRok4lUFN0k5gFnIORh1Xsp/6iJJ4C3hlX
+         4dVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788102208; x=1788707008;
+        h=content-type:to:from:subject:date:message-id:feedback-id
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=7CObCHwtAFfopjVn8suN0py2gWeFVpE99os1hjBtklg=;
+        b=Q9G2PAQE65Uuk6CTYK4Qtk/8cWVPxJ6ufwXEvQ1VuTf9ZXYPT8vKrvyrnjTQ3Au2A/
+         6k4xFZNdiHijS/xkrEArYUv5LBm43fq7UemjOaicvprQUEMPu5CzR6YW4d7gUA6vJovl
+         qx54Y0JyU3Yj2vvz0Drep7kI0Hyo5bP7sCuQxaxW/7dP9kuEBBFbrnJlMrDBCjKCjIPK
+         hlZ5VFsHiQB6bl8nss7TGoEO8Y3WiLhIM0w098nLCNbPscgld6DKhOVhjuB5Oxh9g8UN
+         LXKYguntNDLKsEz2+k06ENCv8hJyEeNZYAbtq1EngQgj4JEbnRNGEzhS8DMc/MwNUZux
+         LOiA==
+X-Gm-Message-State: AFuF++kWQnbP7OyLqgPxVSSkNrwZhoOMdUsR+92AB1TriKiI6IUn6b0Y
+	8ZYeRNltysGBSGvfp07A6FepnlFcmOdhTjj4q9tyEQudQpBUufCXVQCHeG6128Gf1PlH98TEsze
+	k/ELQVatm4iB3DG9MFYPaFK9GZaf3NiTXRy8oCJiD4f+LXjWzvdIaSU0XrMg=
+MIME-Version: 1.0
+X-Received: by 2002:a05:6830:710f:b0:7f4:e350:b533 with SMTP id
+ 46e09a7af769-7f4f24f5ce2mr24243469a34.4.1788102208511; Sun, 30 Aug 2026
+ 08:03:28 -0700 (PDT)
+Feedback-ID: MailTypeResponseReceipt:GoogleForms
+X-GoogleForms-FormId: e/1FAIpQLSc-wesbJFVRIFnEEftrFLbLG9M7V_pkm2mElsn9g9bEO20ZRg
+X-GoogleForms-CustomerDisplayName: IILM
+Message-ID: <autogen-java-ddfa419a-e142-4cf1-a4e5-e85d03c1c039@google.com>
+Date: Sun, 30 Aug 2026 15:03:28 +0000
+Subject: Thanks for filling out this form: Internship Details for Odd Sem -
+ 3rd, 5th and 7th Semesters
+From: Forms Response Receipts <forms-receipts-noreply@google.com>
+To: ansh.25scs1003005085@iilm.edu
+Content-Type: multipart/alternative; boundary="000000000000f5f413065a44fcc7"
+
+--000000000000f5f413065a44fcc7
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+Google Forms
+
+
+Thanks for filling out this form: Internship Details for Odd Sem - 3rd, 5th  
+and 7th Semesters
+Here's what was received.
+
+
+Internship Details for Odd Sem - 3rd, 5th and 7th Semesters
+
+Hi Students,
+
+
+
+Greetings of the day! I hope you are doing well.
+
+
+
+Please fill out your Summer Internship details as asked in the below form  
+at the earliest.
+
+
+
+Regards,
+
+Internship and Placement Team - SCSE,
+
+IILM University, Greater Noida.
+
+
+Your email (ansh.25scs1003005085@iilm.edu) was recorded when you submitted  
+this form.
+
+
+Name *
+
+
+Ansh chaudhary
+
+
+Roll No (As per official document) *
+
+
+25scs1003005085
+
+
+Mobile Number *
+
+
+8630836478
+
+
+Semester *
+
+
+3rd Semester
+
+
+5th Semester
+
+
+7th Semester
+
+
+3rd Semester Sections Selection
+
+Select your appropriate sections
+
+
+3rd Semester Sections *
+
+
+CSE12
+
+
+
+Internship Documents and Details
+
+Please provide your internship documents and details
+
+
+GitHub Link
+(Please follow the following steps for creating the GitHub Link -
+
+1. Create a public repository with the name in this format  
+- "Session_Name_RollNo_Semester_Section" .
+
+2. Now, upload "Internship Report", "Internship PPT" and "Internship  
+Certificate" in the repo. )
+
+
+
+Please Note -
+
+1. For 4th Year - 7th Semester - Session will be "2023-27"
+
+
+
+2. For 3rd Year - 5th Semester - Session will be "2024-28"
+
+
+
+3. For 2nd Year - 3rd Semester - Session will be "2025-29"
+*
+
+
+https://github.com/ansh25scs1003005085-glitch/2025-29_AnshChaudhary_25scs1003005085_3rdSemester_2CSE12
+
+
+Starting Date *
+
+
+MM
+
+07
+
+
+/
+
+
+DD
+
+20
+
+
+/
+
+
+YYYY
+
+2026
+
+
+Ending Date *
+
+
+MM
+
+09
+
+
+/
+
+
+DD
+
+20
+
+
+/
+
+
+YYYY
+
+2026
+
+
+Company Name *
+
+
+Relief Mission Foundation
+
+
+Job Profile *
+
+
+As a Human Resource (HR) Intern, my profile involves managing end-to-end  
+virtual recruitment pipelines, candidate screening and interviews,  
+onboarding workflows, and designing recruitment outreach materials for  
+Relief Mission Foundation.
+
+
+Job Designation *
+
+
+Human Resource (HR) Intern (Virtual / Remote)
+
+
+Company Website Link *
+
+
+https://reliefmissionfoundation.org/
+
+
+Create your own Google Form
+
+Does this form look suspicious? Report
+
+
+
+--000000000000f5f413065a44fcc7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><style nonce=3D"Q-xDlxFeTyGJLnp-RI1cfA">@import url(https://fon=
+ts.googleapis.com/css?family=3DGoogle+Sans:400,500|Roboto:300,400,400i,500,=
+700&subset=3Dlatin,vietnamese,latin-ext,cyrillic,greek,cyrillic-ext,greek-e=
+xt);</style><style nonce=3D"Q-xDlxFeTyGJLnp-RI1cfA">[class=3D"x_body-conten=
+t-wrapper"] * {white-space: normal !important;}</style></head><body dir=3D"=
+ltr" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif=
+;font-size: 14px; font-weight: 400; line-height: 20px;text-align: start; wo=
+rd-wrap: break-word; margin: 0; padding: 0; height: 100%; width: 100%;"><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"background-co=
+lor:rgb(87,70,227);" width=3D"100%" role=3D"presentation"><tbody><tr height=
+=3D"64px"><td style=3D"padding: 0 24px;"><img alt=3D"Google Forms" height=
+=3D"26px" style=3D"display: inline-block; margin: 0; vertical-align: middle=
+;" width=3D"143px" src=3D"https://www.gstatic.com/docs/forms/google_forms_l=
+ogo_lockup_white_2x.png"></td></tr></tbody></table><div class=3D"body-conte=
+nt-wrapper" style=3D"padding: 12px; background-color: rgb(237,231,246);"><d=
+iv style=3D"margin: 0 auto; max-width: 640px; min-width: 154px;"><div style=
+=3D"border: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; b=
+order-radius: 8px; margin-bottom: 12px;padding: 20px;"><h1 style=3D"color: =
+#202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 20px; fon=
+t-weight: 400; line-height: 28px;margin: 0 0 12px;">Thanks for filling out =
+this form: <a href=3D"https://docs.google.com/forms/d/e/1FAIpQLSc-wesbJFVRI=
+FnEEftrFLbLG9M7V_pkm2mElsn9g9bEO20ZRg/viewform?usp=3Dmail_form_link" target=
+=3D"_blank" style=3D"white-space: pre-wrap;"><b>Internship Details for Odd =
+Sem - 3rd, 5th and 7th Semesters</b></a></h1>Here's what was received.</div=
+><div style=3D"border-bottom: 1px solid #dadce0; border-left: 1px solid #da=
+dce0; border-right: 1px solid #dadce0; border-top: 8px solid rgb(87,70,227)=
+; padding: 20px;background-color: #fff; border-radius: 8px; margin-bottom: =
+12px;"><h1 dir=3D"ltr" style=3D"font-family: Roboto,Helvetica,Arial,sans-se=
+rif;font-size: 32px; font-weight: 400; line-height: 42px;white-space: pre-w=
+rap;margin: 0 0 12px;"><b>Internship Details for Odd Sem - 3rd, 5th and 7th=
+ Semesters</b></h1><div style=3D"white-space: pre-wrap;margin-bottom: 12px;=
+">Hi Students,<div><br></div><div>Greetings of the day! I hope you are doin=
+g well.=C2=A0</div><div><br></div><div>Please fill out your=C2=A0 Summer In=
+ternship details as asked in the below form at the earliest.=C2=A0</div><di=
+v><br></div><div>Regards,</div><div>Internship and Placement Team - SCSE,</=
+div><div>IILM University, Greater Noida.</div></div><div dir=3D"ltr">Your e=
+mail (<b>ansh.25scs1003005085@iilm.edu</b>) was recorded when you submitted=
+ this form.</div></div><div style=3D"border: 1px solid #dadce0; padding: 20=
+px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;mar=
+gin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=
+=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size=
+: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0=
+ 0 16px;">Name<span style=3D"color: #d93025;" aria-label=3D"Required questi=
+on"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=3D"width=
+: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1p=
+x dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inl=
+ine-block; max-width: 100%; min-width: 50%;">Ansh chaudhary</div></div></di=
+v></div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;backgro=
+und-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12p=
+x;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #20212=
+4;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weig=
+ht: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Roll No=
+ (As per official document)<span style=3D"color: #d93025;" aria-label=3D"Re=
+quired question"> *</span></h2></div><div style=3D"padding: 0 12px;"><div s=
+tyle=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;bord=
+er-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px=
+;display: inline-block; max-width: 100%; min-width: 50%;">25scs1003005085</=
+div></div></div></div><div style=3D"border: 1px solid #dadce0; padding: 20p=
+x 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;marg=
+in-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D=
+"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 1=
+6px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 =
+16px;">Mobile Number<span style=3D"color: #d93025;" aria-label=3D"Required =
+question"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=3D=
+"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bott=
+om: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;displa=
+y: inline-block; max-width: 100%; min-width: 50%;">8630836478</div></div></=
+div></div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;backg=
+round-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 1=
+2px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202=
+124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-we=
+ight: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Semes=
+ter<span style=3D"color: #d93025;" aria-label=3D"Required question"> *</spa=
+n></h2></div><div style=3D"padding: 0 12px;"><div style=3D"margin-top: 16px=
+;"><table style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-=
+serif;font-size: 14px; font-weight: 400; line-height: 20px;margin-top: 8px;=
+ table-layout: fixed;"><tr><td><div role=3D"radio" aria-checked=3D"true" ar=
+ia-label=3D"3rd Semester" style=3D"border: solid 2px #5f6368; height: 16px;=
+ width: 16px; border-radius: 50%;"><div style=3D"background-color: #5f6368;=
+ border: solid 5px #5f6368; border-radius: 50%; margin: 3px; height: 0; wid=
+th: 0;"></div></div></td><td style=3D"min-width: 8px;"></td><td style=3D"wo=
+rd-break: break-word;">3rd Semester</td></tr></table></div><div style=3D"ma=
+rgin-top: 16px;"><table style=3D"color: #202124;font-family: Roboto,Helveti=
+ca,Arial,sans-serif;font-size: 14px; font-weight: 400; line-height: 20px;co=
+lor: #70757a;margin-top: 8px; table-layout: fixed;"><tr><td><div role=3D"ra=
+dio" aria-checked=3D"false" aria-label=3D"5th Semester" style=3D"border: so=
+lid 2px #9aa0a6; height: 16px; width: 16px; border-radius: 50%;"></div></td=
+><td style=3D"min-width: 8px;"></td><td style=3D"word-break: break-word;">5=
+th Semester</td></tr></table></div><div style=3D"margin-top: 16px;"><table =
+style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font=
+-size: 14px; font-weight: 400; line-height: 20px;color: #70757a;margin-top:=
+ 8px; table-layout: fixed;"><tr><td><div role=3D"radio" aria-checked=3D"fal=
+se" aria-label=3D"7th Semester" style=3D"border: solid 2px #9aa0a6; height:=
+ 16px; width: 16px; border-radius: 50%;"></div></td><td style=3D"min-width:=
+ 8px;"></td><td style=3D"word-break: break-word;">7th Semester</td></tr></t=
+able></div></div></div><div style=3D"border-bottom: 1px solid #dadce0; bord=
+er-left: 1px solid #dadce0; border-right: 1px solid #dadce0; border-top: 8p=
+x solid rgb(87,70,227); padding: 0;background-color: #fff; border-radius: 8=
+px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 ;"><=
+h2 dir=3D"auto" style=3D"color: #fff;font-family: Roboto,Helvetica,Arial,sa=
+ns-serif;font-size: 16px; font-weight: 400; line-height: 24px;background-co=
+lor: rgb(87,70,227); margin: 0; padding: 4px 24px 12px;"><b>3rd Semester Se=
+ctions Selection</b><span></span></h2><div dir=3D"auto" style=3D"color: #20=
+2124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 12px; font-w=
+eight: 400; letter-spacing: .25px; line-height: 16px;white-space: pre-wrap;=
+margin: 24px 17px;">Select your appropriate sections</div></div><div style=
+=3D"padding: 0 12px;"></div></div><div style=3D"border: 1px solid #dadce0; =
+padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-botto=
+m: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"au=
+to" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;=
+font-size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;=
+margin: 0 0 16px;">3rd Semester Sections<span style=3D"color: #d93025;" ari=
+a-label=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 =
+12px;"><div style=3D"border: 1px solid #dadce0; border-radius: 4px; display=
+: inline-block; margin-top: 8px; max-width: 100%;"><table dir=3D"auto" styl=
+e=3D"border-collapse: collapse; color: #5f6368; max-width: 100%; margin: 12=
+px 8px;"><tr><td><div style=3D"color: #202124;font-family: Roboto,Helvetica=
+,Arial,sans-serif;font-size: 14px; font-weight: 400; line-height: 20px;colo=
+r: #5f6368; word-break: break-word; min-width: 100px; margin: 0 8px;">CSE12=
+</div></td><td style=3D"vertical-align: top;"><div style=3D"border-left: 5p=
+x solid transparent; border-right: 5px solid transparent; border-top: 5px s=
+olid #5f6368; margin: 8px; height: 0; width: 0;"></div></td></tr></table></=
+div></div></div><div style=3D"border-bottom: 1px solid #dadce0; border-left=
+: 1px solid #dadce0; border-right: 1px solid #dadce0; border-top: 8px solid=
+ rgb(87,70,227); padding: 0;background-color: #fff; border-radius: 8px; mar=
+gin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 ;"><h2 dir=
+=3D"auto" style=3D"color: #fff;font-family: Roboto,Helvetica,Arial,sans-ser=
+if;font-size: 16px; font-weight: 400; line-height: 24px;background-color: r=
+gb(87,70,227); margin: 0; padding: 4px 24px 12px;"><b>Internship Documents =
+and Details</b></h2><div dir=3D"auto" style=3D"color: #202124;font-family: =
+Roboto,Helvetica,Arial,sans-serif;font-size: 12px; font-weight: 400; letter=
+-spacing: .25px; line-height: 16px;white-space: pre-wrap;margin: 24px 17px;=
+">Please provide your internship documents and details</div></div><div styl=
+e=3D"padding: 0 12px;"></div></div><div style=3D"border: 1px solid #dadce0;=
+ padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-bott=
+om: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"a=
+uto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif=
+;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap=
+;margin: 0 0 16px;"><b>GitHub Link</b><div>(Please follow the <i>following =
+step</i>s for creating the GitHub Link -=C2=A0</div><div>1. Create a public=
+ repository=C2=A0
+
+with the name in this format - "<i>Session_Name_RollNo_Semester_Section</i>=
+"=C2=A0 .=C2=A0</div><div>2. Now, upload "<i>Internship Report</i>", "<i>In=
+ternship PPT</i>" and "<i>Internship Certificate</i>" in the repo. )</div><=
+div><br></div><div><b><u>Please Note</u></b> -=C2=A0</div><div>1.=C2=A0 For=
+ 4th Year - 7th Semester - Session will be "<i>2023-27</i>"</div><div><br><=
+/div><div>2. For 3rd Year - 5th Semester - Session will be "<i>2024-28</i>"=
+</div><div><br></div><div>3. For 2nd Year - 3rd Semester - Session will be =
+"<i>2025-29</i>"</div><span style=3D"color: #d93025;" aria-label=3D"Require=
+d question"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=
+=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-b=
+ottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;dis=
+play: inline-block; max-width: 100%; min-width: 50%;">https://github.com/an=
+sh25scs1003005085-glitch/2025-29_AnshChaudhary_25scs1003005085_3rdSemester_=
+2CSE12</div></div></div></div><div style=3D"border: 1px solid #dadce0; padd=
+ing: 20px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 1=
+2px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" =
+style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font=
+-size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;marg=
+in: 0;">Starting Date<span style=3D"color: #d93025;" aria-label=3D"Required=
+ question"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=
+=3D"display: inline-block; margin-top: 20px;"><div style=3D"display: inline=
+-block; margin: 0 2px; min-width: 14px; text-align: center;"><div style=3D"=
+color: #70757a;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 12=
+px; font-weight: 400; letter-spacing: .25px; line-height: 16px;margin-botto=
+m: 12px; text-align: start;" aria-label=3D"Month">MM</div><div style=3D"bor=
+der-bottom: 1px solid rgba(0, 0, 0, 0.12);height: 20px; letter-spacing: 0.2=
+px; white-space: pre;">07</div></div> <div style=3D"display: inline-block; =
+margin: 0 2px; min-width: 5px; text-align: center;"><div style=3D"font-weig=
+ht: 700;">/</div></div> <div style=3D"display: inline-block; margin: 0 2px;=
+ min-width: 14px; text-align: center;"><div style=3D"color: #70757a;font-fa=
+mily: Roboto,Helvetica,Arial,sans-serif;font-size: 12px; font-weight: 400; =
+letter-spacing: .25px; line-height: 16px;margin-bottom: 12px; text-align: s=
+tart;" aria-label=3D"Day of the month">DD</div><div style=3D"border-bottom:=
+ 1px solid rgba(0, 0, 0, 0.12);height: 20px; letter-spacing: 0.2px; white-s=
+pace: pre;">20</div></div> <div style=3D"display: inline-block; margin: 0 2=
+px; min-width: 5px; text-align: center;"><div style=3D"font-weight: 700;">/=
+</div></div> <div style=3D"display: inline-block; margin: 0 2px; min-width:=
+ 28px; text-align: center;"><div style=3D"color: #70757a;font-family: Robot=
+o,Helvetica,Arial,sans-serif;font-size: 12px; font-weight: 400; letter-spac=
+ing: .25px; line-height: 16px;margin-bottom: 12px; text-align: start;" aria=
+-label=3D"Year">YYYY</div><div style=3D"border-bottom: 1px solid rgba(0, 0,=
+ 0, 0.12);height: 20px; letter-spacing: 0.2px; white-space: pre;">2026</div=
+></div></div></div></div><div style=3D"border: 1px solid #dadce0; padding: =
+20px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;m=
+argin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=
+=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size=
+: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0=
+;">Ending Date<span style=3D"color: #d93025;" aria-label=3D"Required questi=
+on"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=3D"displ=
+ay: inline-block; margin-top: 20px;"><div style=3D"display: inline-block; m=
+argin: 0 2px; min-width: 14px; text-align: center;"><div style=3D"color: #7=
+0757a;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 12px; font-=
+weight: 400; letter-spacing: .25px; line-height: 16px;margin-bottom: 12px; =
+text-align: start;" aria-label=3D"Month">MM</div><div style=3D"border-botto=
+m: 1px solid rgba(0, 0, 0, 0.12);height: 20px; letter-spacing: 0.2px; white=
+-space: pre;">09</div></div> <div style=3D"display: inline-block; margin: 0=
+ 2px; min-width: 5px; text-align: center;"><div style=3D"font-weight: 700;"=
+>/</div></div> <div style=3D"display: inline-block; margin: 0 2px; min-widt=
+h: 14px; text-align: center;"><div style=3D"color: #70757a;font-family: Rob=
+oto,Helvetica,Arial,sans-serif;font-size: 12px; font-weight: 400; letter-sp=
+acing: .25px; line-height: 16px;margin-bottom: 12px; text-align: start;" ar=
+ia-label=3D"Day of the month">DD</div><div style=3D"border-bottom: 1px soli=
+d rgba(0, 0, 0, 0.12);height: 20px; letter-spacing: 0.2px; white-space: pre=
+;">20</div></div> <div style=3D"display: inline-block; margin: 0 2px; min-w=
+idth: 5px; text-align: center;"><div style=3D"font-weight: 700;">/</div></d=
+iv> <div style=3D"display: inline-block; margin: 0 2px; min-width: 28px; te=
+xt-align: center;"><div style=3D"color: #70757a;font-family: Roboto,Helveti=
+ca,Arial,sans-serif;font-size: 12px; font-weight: 400; letter-spacing: .25p=
+x; line-height: 16px;margin-bottom: 12px; text-align: start;" aria-label=3D=
+"Year">YYYY</div><div style=3D"border-bottom: 1px solid rgba(0, 0, 0, 0.12)=
+;height: 20px; letter-spacing: 0.2px; white-space: pre;">2026</div></div></=
+div></div></div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px=
+;background-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bot=
+tom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color=
+: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; f=
+ont-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;"=
+>Company Name<span style=3D"color: #d93025;" aria-label=3D"Required questio=
+n"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=3D"width:=
+ 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px=
+ dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inli=
+ne-block; max-width: 100%; min-width: 50%;">Relief Mission Foundation</div>=
+</div></div></div><div style=3D"border: 1px solid #dadce0; padding: 20px 12=
+px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-b=
+ottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"col=
+or: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px;=
+ font-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px=
+;">Job Profile<span style=3D"color: #d93025;" aria-label=3D"Required questi=
+on"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=3D"width=
+: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1p=
+x dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inl=
+ine-block; max-width: 100%; min-width: 50%;">As a Human Resource (HR) Inter=
+n, my profile involves managing end-to-end virtual recruitment pipelines, c=
+andidate screening and interviews, onboarding workflows, and designing recr=
+uitment outreach materials for Relief Mission Foundation.</div></div></div>=
+</div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;backgroun=
+d-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;=
+"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;=
+font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight=
+: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Job Desig=
+nation<span style=3D"color: #d93025;" aria-label=3D"Required question"> *</=
+span></h2></div><div style=3D"padding: 0 12px;"><div style=3D"width: 100%;"=
+><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px dotted=
+ rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inline-bloc=
+k; max-width: 100%; min-width: 50%;">Human Resource (HR) Intern (Virtual / =
+Remote)  </div></div></div></div><div style=3D"border: 1px solid #dadce0; p=
+adding: 20px 12px;background-color: #fff; border-radius: 8px; margin-bottom=
+: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"aut=
+o" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;f=
+ont-size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;m=
+argin: 0 0 16px;">Company Website Link<span style=3D"color: #d93025;" aria-=
+label=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 12=
+px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pr=
+e-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-h=
+eight: 20px;display: inline-block; max-width: 100%; min-width: 50%;">https:=
+//reliefmissionfoundation.org/</div></div></div></div></div><table align=3D=
+"center" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width: 672px; min=
+-width: 154px; border-collapse: separate; border-spacing: 0 0.2em;" width=
+=3D"100%" role=3D"presentation"><tbody><tr height=3D"24px"><td></td></tr><t=
+r><td><a href=3D"https://docs.google.com/forms?usp=3Dmail_form_link" style=
+=3D"color: #424242; font-size: 13px;">Create your own Google Form</a></td><=
+/tr><tr><td>Does this form look suspicious? <a href=3D"https://drive.google=
+.com/abuse?id=3DAAMpA0QdBMTI27d8CkXxuoWUlf6eOWKhhfpVBLThYq8gsMv5jbaoyY4LfKT=
+AvXZV4I0IScbPeq0ZeF7ZsUs_oqI:0&amp;rt=3DAYg7rXQ9tr583JxAFcO-fu9IJeoSqRpP3qn=
+87GJF4G8uq5H1CfOPN65BFkXSKYg5z4UNIRiguGEzHZbFAOKkWxbTQ06jy7NZIE3CeCYfocJXL2=
+JWiFDfg6ijtG1wzFC42TSGrBRR7DbMoFOh9rve8oC_K43aYEldXASfi-P0uUP7nG1MPiZwVCsOO=
+e0nMtfAgHl-QvM%3D:1&amp;usp=3Dmail_receipt_abuse" target=3D"_blank" style=
+=3D"color: #424242; font-size: 13px;">Report</a></td></tr></tbody></table><=
+/div></body></html>
+--000000000000f5f413065a44fcc7--
